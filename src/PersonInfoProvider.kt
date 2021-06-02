@@ -45,6 +45,18 @@ fun main() {
     val provider2 = FancyInfoProvider()
 //    provider2.sessionIdPrefix  Protected!
     provider2.printInfo(Person())
+
+    println("=====================")
+
+    // Another Object Expression
+    val provider3 = object : PersonInfoProvider {
+        override val providerInfo: String
+            get() = "New Info Provider"
+
+        fun getSessionId() = "id"
+    }
+    provider3.printInfo(Person())
+    provider3.getSessionId()
 }
 
 // type casting
